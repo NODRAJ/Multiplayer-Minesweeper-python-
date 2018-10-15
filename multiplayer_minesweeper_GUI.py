@@ -51,101 +51,81 @@ def click_checker(event):
             if Mines[chosen_row - 1][chosen_column - 1] == Mine_Chance and chosen_row > 0 and chosen_column > 0:
                     
                     Surrounding_Mines += 1
-                    #print('1')
-                    
                     
         except:
 
             pass
-                #print('oops')
 
         try:
                 
             if Mines[chosen_row][chosen_column - 1] == Mine_Chance and chosen_column > 0:
                     
                     Surrounding_Mines += 1
-                    #print('2')
                     
         except:
 
             pass
-                #print('oops')
                 
         try:
                 
             if Mines[chosen_row + 1][chosen_column - 1] == Mine_Chance and chosen_column > 0:
                     
                     Surrounding_Mines += 1
-                    #print('3')
                     
         except:
 
             pass
-                #print('oops')
             
         try:
                 
             if Mines[chosen_row - 1][chosen_column] == Mine_Chance and chosen_row > 0:
                     
                     Surrounding_Mines += 1
-                    #print('4')
                     
         except:
 
             pass
-                #print('oops')
                 
         try:
                 
             if Mines[chosen_row + 1][chosen_column] == Mine_Chance:
                     
                     Surrounding_Mines += 1
-                    #print('5')
                     
         except:
 
             pass
-                #print('oops')
                 
         try:
                 
             if Mines[chosen_row - 1][chosen_column + 1] == Mine_Chance and chosen_row > 0:
                     
                     Surrounding_Mines += 1
-                    #print('6')
                     
         except:
 
             pass
-                #print('oops')
                 
         try:
                 
             if Mines[chosen_row][chosen_column + 1] == Mine_Chance:
                     
                     Surrounding_Mines += 1
-                    #print('7')
                     
         except:
 
             pass
-                #print('oops')
                 
         try:
                 
             if Mines[chosen_row + 1][chosen_column + 1] == Mine_Chance:
                     
                     Surrounding_Mines += 1
-                    #print('8')
                     
         except:
 
             pass
-                #print('oops')
-            
-            #Board[chosen_row][chosen_column] = str(Surrounding_Mines)
-
-            #CHANGE TO FRAME INSTEAD OF ROOT
+        
         print(chosen_column)
         print(chosen_row)
         event.widget.grid_forget()
@@ -181,69 +161,7 @@ def click_checker(event):
         time.sleep(0.5)
         End_Game_Info = s.recv(1024)
         print(End_Game_Info.decode('utf-8'))
-
-#def Flag_Maker(event):
-    
-#    string_widget = str(event.widget)
-    
-#    if string_widget == '.!button':
         
-#        string_widget += '1'
-        
-#    widge = int(string_widget[8:])
-#    print(widge)
-#    chosen_row, chosen_column = divmod(widge, columns)
-    
-#    if chosen_column == 0:
-        
-  #      chosen_column = columns
- #       chosen_row -= 1
-        
-#    chosen_column -= 1
-
- #   event.widget.grid_forget()
- #   b = Button(root, text='     ', bg='red')
-#    b.grid(column=chosen_column, row=chosen_row)
-#    b.bind('<Button-2>', Button_Finder)
-#    print('bruh')
-#    print(b.invoke())
-#    b.bind('<Button-3>', Flag_Remover)
-    
-#def Button_Finder(Event):
-
-    #return event.widget
-    
-#def Flag_Remover(event):
-
-    #string_widget = str(event.widget)
-    
-    #if string_widget == '.!button':
-        
-    #    string_widget += '1'
-        
-    #widge = int(string_widget[8:])
-    #print(widge)
-    #chosen_row, chosen_column = divmod(widge, columns)
-    
-    #if chosen_column == 0:
-        
-     #   chosen_column = columns
-    #    chosen_row -= 1
-        
-    #chosen_column -= 1
-   # print(chosen_column)
-    #print('\n' + str(chosen_row))
-
-#    event.widget.grid_forget()
-#    b = Button(root, text='     ', bg='grey')
-#    b.bind('<Button-1>', click_checker)
-#    b.bind('<Button-3>', Flag_Maker)
-#    b.grid(column=chosen_column, row=chosen_row)
-
-##FIND OUT HOW TO GET THE NEW RED BUTTONS EVENT.WIDGET AND LINK IT WITH THE BUTTON
-##BEFORE'S EVENT.WIDGET THEN USE THE EVENT.WIDGET ASSIGNED TO THE CURRENT ONE IN
-##FLAG REMOVER TO REPLACE THE FLAG WITH A NORMAL BUTTON
-
 s = socket.socket()
 s.connect(('192.168.88.1', 5450))
 rows = s.recv(1024)
@@ -271,8 +189,6 @@ root = Tk()
 
 row_count = 0
 column_count = 0
-#l = Label(root, text='PySweeper')
-#l.grid(row=0,sticky=N)
 
 for y in range(rows):
     
@@ -302,8 +218,6 @@ for row in Mines:
             if num != Mine_Chance:
             
                 Total_Spaces += 1
-
-#Mine board still needs to be made
    
 for x in range(3):
     
@@ -313,87 +227,4 @@ for x in range(3):
 print('\nGO!!!\n')
 Start_Time = time.time()
 
-#start tk function to display board
 root.mainloop()
-
-
-
-#SORT OUT COLUMN AND ROW ALIGNEMENT
-
-
-
-
-
-#while Game_Over == False:
-    
-    #print('\n ', end = ' ' * len(str(rows)))
-    #print('')
-#Digits = 0
-    #for y in range(len(str(columns))):
-
-    #    print(' ' * (len(str(rows)) + 1), end='')
-
-    #    for x in range(columns):
-
-    #        bru = x + 1
-
-    #        try:
-
-    #            print(str(bru)[Digits], end = ' ')
-
-     #       except:
-                
-     #           print(' ', end=' ')
-
-    #    Digits += 1
-     #   if y != int(len(str(columns)) - 1):
-     #       print('')
-        
-    #print('')
-    #bruh = 0
-    
-    #for row in Board:
-        
-        #bruh += 1
-        #print(str(bruh), end = ' ' * ((len(str(rows)) + 1) - len(str(bruh))))
-        #print(" ".join(row))
-
-#BOARD PRINTING IS NOT NEEDED AS THE BOARD IS IN TK
-
-    #chosen_row = 0
-    #chosen_column = 0
-
-    #while chosen_column not in range(1, columns + 1):
-        
-        #try:
-
-            #chosen_column = int(input('\nchoose your column\n'))
-
-        #except:
-
-            #pass
-
-    #while chosen_row not in range(1, rows + 1):
-        
-        #try:
-            
-            #chosen_row = int(input('\nchoose your row\n'))
-
-        #except:
-            
-           # pass
-
-#ROWS AND COLUMNS ARE CHOSEN BY THE USER WHEN CLICKING
-
-    #chosen_row -= 1
-           
-#CHOSEN ROW STARTS FROM 0 HOWEVER CHOSEN COLUMN DOES NOT
-    
-
-
-
-
-#Make the server calculate the mine field and send it to
-#the clients so they both have the same board
-
-#Eventually add the chain reaction where adjacent empty spaces are removed
