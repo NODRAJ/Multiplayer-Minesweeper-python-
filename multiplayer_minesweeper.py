@@ -148,12 +148,10 @@ while Game_Over == False:
             if Mines[Chosen_Row + 1][Chosen_Column - 1] == Mine_Chance and Chosen_Column > 0:
                 
                 Surrounding_Mines += 1
-                #print('3')
                 
         except:
 
             pass
-            #print('oops')
         
         try:
             
