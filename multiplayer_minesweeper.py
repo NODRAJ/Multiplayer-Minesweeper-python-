@@ -56,8 +56,7 @@ for row in Mines:
             Total_Spaces += 1
 
 while Game_Over == False:
-    
-    #print('\n ', end = ' ' * len(str(rows)))
+   
     print('')
     Digits = 0
     for y in range(len(str(columns))):
@@ -129,25 +128,20 @@ while Game_Over == False:
             if Mines[Chosen_Row - 1][Chosen_Column - 1] == Mine_Chance and Chosen_Row > 0 and Chosen_Column > 0:
                 
                 Surrounding_Mines += 1
-                #print('1')
-                
                 
         except:
 
             pass
-            #print('oops')
-
+        
         try:
             
             if Mines[Chosen_Row][Chosen_Column - 1] == Mine_Chance and Chosen_Column > 0:
                 
                 Surrounding_Mines += 1
-                #print('2')
                 
         except:
 
             pass
-            #print('oops')
             
         try:
             
@@ -166,60 +160,50 @@ while Game_Over == False:
             if Mines[Chosen_Row - 1][Chosen_Column] == Mine_Chance and Chosen_Row > 0:
                 
                 Surrounding_Mines += 1
-                #print('4')
                 
         except:
 
             pass
-            #print('oops')
             
         try:
             
             if Mines[Chosen_Row + 1][Chosen_Column] == Mine_Chance:
                 
                 Surrounding_Mines += 1
-                #print('5')
                 
         except:
 
             pass
-            #print('oops')
             
         try:
             
             if Mines[Chosen_Row - 1][Chosen_Column + 1] == Mine_Chance and Chosen_Row > 0:
                 
                 Surrounding_Mines += 1
-                #print('6')
                 
         except:
 
             pass
-            #print('oops')
             
         try:
             
             if Mines[Chosen_Row][Chosen_Column + 1] == Mine_Chance:
                 
                 Surrounding_Mines += 1
-                #print('7')
                 
         except:
 
             pass
-            #print('oops')
             
         try:
             
             if Mines[Chosen_Row + 1][Chosen_Column + 1] == Mine_Chance:
                 
                 Surrounding_Mines += 1
-                #print('8')
                 
         except:
 
             pass
-            #print('oops')
         
         Board[Chosen_Row][Chosen_Column] = str(Surrounding_Mines)
         Total_Spaces -= 1
@@ -244,10 +228,4 @@ else:
     time.sleep(0.5)
     End_Game_Info = s.recv(1024)
     print(End_Game_Info.decode('utf-8'))
-
-
-
-#Make the server calculate the mine field and send it to
-#the clients so they both have the same board
-
-#Eventually add the chain reaction where adjacent empty spaces are removed
+    
