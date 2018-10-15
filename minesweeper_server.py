@@ -36,12 +36,6 @@ while stop == 0:
     
    data1 = c1.recv(1024)
    data2 = c2.recv(1024)
-   
-   #if not data1 and not data2:
-       
-    #   stop = 2
-     #  print('Both clients left')
-      # break
     
    if data1.decode('utf-8') == 'ready':
        
@@ -107,20 +101,3 @@ while stop == 1:
        c1.send(str.encode(LoseMsg))
        c2.send(str.encode(WinMsg))
        stop = 2
-
-
-
-
-
-
-#print('bruh')
-#s.listen(1) #make it 2
-#c , addr = s.accept()
-#print('Connection from: ' + str(addr))
-#while True:
-#    data = c.recv(1024)
-#    if not data:
-#        break
-#    print('Recieved: ' + str(data))
-#    c.send(data.upper())
-#c.close()
